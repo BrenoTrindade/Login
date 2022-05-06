@@ -1,0 +1,93 @@
+﻿
+<style>
+
+    @@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    form {
+        position: absolute;
+        margin-top: 80px;
+        transition: .5s;
+        width: 300px;
+        height: 400px;
+    }
+
+</style>
+
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <div class="containerPage">
+        <div class="containerImage">
+            <h1>VENHA PARA <br> Inove Solucoes<br>porque foguete nao da re</h1>
+            <img asp-append-version="true" src="wwwroot/images/download.jpg"/>
+        </div>
+        <div class="containerSeparador">
+            <div class="containerLoginRegister">
+                <div class="buttonsForm">
+                    <div class="@btnColor"></div>
+                    <button @onclick="ButtonSignInClick" id="btnSignIn">Sign in </button>
+                    <button @onclick="ButtonSignUpClick" id="btnSignUp">Sign up</button>
+                </div>
+
+                <form id="@signin">
+                    <input type="text" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <div class="divCheck">
+                        <input type="checkbox">
+                        <span>Remember Password</span>
+                        <div>
+                            <button type="submit">Sign in</button>
+                        </div>
+                    </div>
+                </form>
+
+                <form id="@signup">
+                    <input type="text" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Confirm Password" required>
+                    <div class="divCheck">
+                        <input type="checkbox">
+                        <span>Accept terms</span>
+                        <div>
+                            <button type="submit">Sign up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+@code {
+    public string btnColor { get; set; } = "btnColor";
+
+    public string signin { get; set; } = "signin";
+
+    public string signup { get; set; } = "signupfalse";
+
+    private void ButtonSignInClick()
+    {
+        btnColor = "btnColor";
+        signin = "signin";
+        signup = "signupfalse";
+
+    }
+
+    private void ButtonSignUpClick()
+    {
+        btnColor = "btnColorUp";
+        signin = "signinfalse";
+        signup = "signup";
+    }
+}
